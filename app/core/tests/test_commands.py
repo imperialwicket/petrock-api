@@ -20,7 +20,7 @@ class CommandTests(TestCase):
 
         call_command('wait_for_db')
 
-        self.assertEqual(patched_ensure_connection.call_count,1)
+        self.assertEqual(patched_ensure_connection.call_count, 1)
 
     @patch('time.sleep')
     def test_wait_for_db_delay(self, patched_sleep, patched_ensure_connection):
