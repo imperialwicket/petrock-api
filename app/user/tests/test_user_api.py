@@ -18,6 +18,7 @@ GENERIC_USER_POST = {
     'password': 'pass12345'
 }
 
+
 def create_user(**params):
     """Create and return a new user"""
     return get_user_model().objects.create_user(**params)
@@ -91,7 +92,7 @@ class PublicUserApiTests(TestCase):
 
     def test_create_token_blank_password(self):
         """Test posting a blank password returns error"""
-        postdata = {'email': GENERIC_USER_POST['email'], 'password':''}
+        postdata = {'email': GENERIC_USER_POST['email'], 'password': ''}
         res = self.client.post(TOKEN_URL, postdata)
 
         self.assertNotIn('token', res.data)
